@@ -13,3 +13,13 @@ To install BSE:
 4. Paste in the code you copied in to your console, and press enter.
 
 The blocks should be installed and use-able in the **More Blocks** category.
+
+To install BSE Help (Chrome Extension):
+
+1. [Download](https://github.com/liam4/big-scratch-extension/archive/master.zip) this extension on to your computer.
+   * If your computer doesn't automatically uncompress files when you download them, you may have to open the file and uncompress it.
+2. Open up the Chrome [extensions page](chrome://extensions).
+3. Check the **Developer mode** button if it hasn't been checked already.
+4. Click on **Load unpacked extension...**, then select the folder you just downloaded, and then press enter.
+
+It should be installed - there'll be a little button in the top right of Chrome which you can press to access the help.
