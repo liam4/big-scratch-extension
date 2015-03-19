@@ -42,7 +42,7 @@ BSEBase.descriptor = {
         [' ', 'load BSE', 'register'],
         [' ', 'reload BSE', 'reload']
     ],
-    url: "http://htmlpreview.github.io/?https://github.com/liam4/big-scratch-extension/blob/master/base.html"
+    url: "htmlpreview.github.io/?https://github.com/liam4/big-scratch-extension/blob/master/base.html"
 };
 
 // Logic ==========================================================
@@ -101,7 +101,8 @@ BSELogic.descriptor = {
     ],
     menus: {
         trueFalse: [true, false]
-    }
+    },
+    url: "htmlpreview.github.io/?https://github.com/liam4/big-scratch-extension/blob/master/logic.html"
 };
 
 // Math ===========================================================
@@ -133,7 +134,8 @@ BSEMath.descriptor = {
         ['-'],
         ['r', 'pi', 'constPi'],
         ['r', 'e', 'constEulersNumber']
-    ]
+    ],
+    url: "htmlpreview.github.io/?https://github.com/liam4/big-scratch-extension/blob/master/math.html"
 };
 
 // Data ===========================================================
@@ -163,11 +165,15 @@ BSEData.descriptor = {
         ['r', 'all items in %m.list are %s', 'allOfArrayIs', undefined, 'something'],
         ['-'],
         ['b', '%s', 'asBool', 'anything to boolean']
-    ]
+    ],
+    url: "htmlpreview.github.io/?https://github.com/liam4/big-scratch-extension/blob/master/data.html"
 };
 
 // Registering ====================================================
 BSEBase._internalFunctions = true;
 BSEBase.unregister();
 BSEBase.register();
+if (chrome) {
+    alert("Install the BSE Chrome Extension for help pages!");
+}
 BSEBase._internalFunctions = false;

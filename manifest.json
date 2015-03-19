@@ -1,0 +1,18 @@
+{
+  // Manifest file for using this as a Chrome Extension.
+  "manifest_version": 2,
+
+  "name": "Big Scratch Extension",
+  "description": "This extension makes using the Big Scratch Extension work better on Google Chrome.",
+  "version": "0.1",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "base.html"
+  },
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "https://scratch.mit.edu"
+  ]
+}
