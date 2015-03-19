@@ -123,14 +123,10 @@ BSEMath.constEulersNumber = function() {
 BSEMath.truncatingDivision = function(x, y) {
     return Math.floor(x / y);
 };
-BSEMath.remainderDivision = function(x, y) {
-    return x / y - Math.floor(x / y);
-};
 BSEMath.descriptor = {
     blocks: [
         ['r', '%n ^ %n', 'power', 2, 5],
         ['r', '%n // %n', 'truncatingDivision', 10, 4],
-        ['r', '%n \\\\\\\\ %n', 'remainderDivision', 10, 4],
         ['-'],
         ['r', 'pi', 'constPi'],
         ['r', 'e', 'constEulersNumber']
@@ -173,7 +169,4 @@ BSEData.descriptor = {
 BSEBase._internalFunctions = true;
 BSEBase.unregister();
 BSEBase.register();
-if (chrome) {
-    alert("Install the BSE Chrome Extension for help pages!");
-}
 BSEBase._internalFunctions = false;
