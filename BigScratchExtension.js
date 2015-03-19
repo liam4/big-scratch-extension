@@ -6,6 +6,7 @@ BSEBase._shutdown = function() {};
 BSEBase._getStatus = function() {
     return {status: 2, msg: 'Ready'};
 };
+BSEBase._internalFunctions = false;
 BSEBase.alert = function(t) {
     window.alert(t);
 };
@@ -14,20 +15,34 @@ BSEBase.unregister = function() {
     ScratchExtensions.unregister("BSE Logic");
     ScratchExtensions.unregister("BSE Math");
     ScratchExtensions.unregister("BSE Data");
-    ScratchExtensions.unregister("Big Scratch Extension");
+    if (this._internalFunctions) {
+        ScratchExtensions.unregister("Big Scratch Extension");
+    }
 };
 BSEBase.register = function() {
     console.info("Loading Big Scratch Extension");
-    ScratchExtensions.register("Big Scratch Extension", this.descriptor, this);
+    this._getStatus = function() {return {status: 1, msg: 'Loading'};};
+    if (this._internalFunctions) {
+        ScratchExtensions.register("Big Scratch Extension", this.descriptor, this);
+    }
     ScratchExtensions.register("BSE Data", BSEData.descriptor, BSEData);
     ScratchExtensions.register("BSE Logic", BSELogic.descriptor, BSELogic);
     ScratchExtensions.register("BSE Math", BSEMath.descriptor, BSEMath);
+    this._getStatus = function() {return {status: 2, msg: 'Ready'};};
+};
+BSEBase.reload = function() {
+    this._internalFunctions = true;
+    this.unregister();
+    this.register();
+    this._internalFunctions = false;
 };
 BSEBase.descriptor = {
     blocks: [
-        [' ', 'unload BSE', 'unregister']
+        [' ', 'unload BSE', 'unregister'],
+        [' ', 'load BSE', 'register'],
+        [' ', 'reload BSE', 'reload']
     ],
-    url: "htmlpreview.github.io/"
+    url: "http://htmlpreview.github.io/?https://github.com/liam4/big-scratch-extension/blob/master/base.html"
 };
 
 // Logic ==========================================================
@@ -81,7 +96,8 @@ BSELogic.descriptor = {
         ['b', '%b xnor %b', 'xnor'],
         ['-'],
 //        ['b', 'all items in %m.list are true', 'allOfArrayIsTrue'],
-//        ['b', 'all items in %m.list are false', 'allOfArrayIsFalse']
+//        ['b', 'all items in %m.list are false', 'allOfArrayIsFalse'],
+//        ['-'],
     ],
     menus: {
         trueFalse: [true, false]
@@ -118,7 +134,7 @@ BSEMath.descriptor = {
         ['r', 'pi', 'constPi'],
         ['r', 'e', 'constEulersNumber']
     ]
-}
+};
 
 // Data ===========================================================
 var BSEData = {};
@@ -127,6 +143,7 @@ BSEData._getStatus = function() {
     return {status: 2, msg: 'Ready'}
 };
 BSEData.allOfArrayIs = function(a, b) {
+    if (!a) {return false;} // Return false if no array is given.
     for (var i = 0; i < a.length; i++) {
         if (!(a === b)) {
             return false;
@@ -134,12 +151,23 @@ BSEData.allOfArrayIs = function(a, b) {
     }
     return true;
 };
+BSEData.asBool = function(a) {
+    if (a.toString().toLowerCase() === "true") {
+        return true;
+    } else {
+        return false;
+    }
+};
 BSEData.descriptor = {
     blocks: [
-        ['r', 'all items in %m.list are %s', 'allOfArrayIs']
+        ['r', 'all items in %m.list are %s', 'allOfArrayIs', undefined, 'something'],
+        ['-'],
+        ['b', '%s', 'asBool', 'anything to boolean']
     ]
-}
+};
 
 // Registering ====================================================
+BSEBase._internalFunctions = true;
 BSEBase.unregister();
 BSEBase.register();
+BSEBase._internalFunctions = false;

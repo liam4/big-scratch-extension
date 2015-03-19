@@ -1,0 +1,43 @@
+body {
+    background: #333;
+}
+
+#page {
+    width: 75%;
+    margin-left: 12.5%;
+    margin-right: 12.5%;
+    min-height: calc(100% - 70px);
+    padding: 10px;
+    font-family: Georgia, Palatino, sans-serif;
+    background-color: #EEE;
+    box-shadow: 3px 3px 3px #333;
+    position: absolute;
+    top: 50px;
+}
+
+#header {
+    width: calc(100% - 15px);
+    height: 35px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #FFE;
+    padding: 7.5px;
+    font-size: 30px;
+    padding-top: 10px;
+    z-index: 999;
+    box-shadow: 3px 3px 3px #443;
+}
+
+samp {
+    color: purple;
+}
+
+samp, code {
+    font-family: Monaco, monospace;
+    font-size: 12.5px;
+}
+
+ul {
+    list-style: square;
+}
