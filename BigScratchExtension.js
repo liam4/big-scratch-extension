@@ -42,7 +42,7 @@ BSEBase.descriptor = {
         [' ', 'load BSE', 'register'],
         [' ', 'reload BSE', 'reload']
     ],
-    url: "htmlpreview.github.io/?https://github.com/liam4/big-scratch-extension/blob/master/base.html"
+    url: "http://htmlpreview.github.io/?https://github.com/liam4/big-scratch-extension/blob/master/base.html"
 };
 
 // Logic ==========================================================
@@ -102,7 +102,7 @@ BSELogic.descriptor = {
     menus: {
         trueFalse: [true, false]
     },
-    url: "htmlpreview.github.io/?https://github.com/liam4/big-scratch-extension/blob/master/logic.html"
+    url: "http://htmlpreview.github.io/?https://github.com/liam4/big-scratch-extension/blob/master/logic.html"
 };
 
 // Math ===========================================================
@@ -135,7 +135,7 @@ BSEMath.descriptor = {
         ['r', 'pi', 'constPi'],
         ['r', 'e', 'constEulersNumber']
     ],
-    url: "htmlpreview.github.io/?https://github.com/liam4/big-scratch-extension/blob/master/math.html"
+    url: "http://htmlpreview.github.io/?https://github.com/liam4/big-scratch-extension/blob/master/math.html"
 };
 
 // Data ===========================================================
@@ -166,7 +166,7 @@ BSEData.descriptor = {
         ['-'],
         ['b', '%s', 'asBool', 'anything to boolean']
     ],
-    url: "htmlpreview.github.io/?https://github.com/liam4/big-scratch-extension/blob/master/data.html"
+    url: "http://htmlpreview.github.io/?https://github.com/liam4/big-scratch-extension/blob/master/data.html"
 };
 
 // Registering ====================================================
